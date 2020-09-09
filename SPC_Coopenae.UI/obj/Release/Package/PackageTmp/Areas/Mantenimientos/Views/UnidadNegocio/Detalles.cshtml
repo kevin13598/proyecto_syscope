@@ -1,0 +1,36 @@
+﻿@model SPC_Coopenae.UI.Areas.Mantenimientos.Models.UnidadNegocio
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Unidad de Negocio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meta)
+        </dt>
+
+        <dd>
+            @Html.Encode((ViewBag.Meta as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.Meta).Text)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdUnidad }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

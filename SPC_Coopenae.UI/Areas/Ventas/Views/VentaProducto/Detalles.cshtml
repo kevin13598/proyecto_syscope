@@ -1,0 +1,75 @@
+﻿@model SPC_Coopenae.UI.Areas.Ventas.Models.VentaProducto
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Venta de Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ejecutivo)
+        </dt>
+
+        <dd>
+            @Html.Encode((ViewBag.Ejecutivo as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.Ejecutivo).Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CentroTrabajo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CentroTrabajo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto)
+        </dt>
+
+        <dd>
+            @Html.Encode((ViewBag.Producto as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.Producto).Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdVentaProducto }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

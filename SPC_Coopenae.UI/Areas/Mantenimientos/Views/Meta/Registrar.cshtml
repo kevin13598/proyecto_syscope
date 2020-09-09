@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var json_TipoProductos = Html.Raw(Json.Encode(ViewBag.ListaTipoProductos));
+}
+
+<h2>Registrar</h2>
+<h4>Nueva Meta</h4>
+<span class="text-danger" id="mensaje_validacion"></span>
+<hr />
+
+
+<div class="row">
+
+    <div class="form-group col-md-6">
+        @Html.Label("Descripción de la Meta", new { @class = "control-label" })
+        @Html.TextBox("Descripcion", null, new { @id = "txt_descripcion", @class = "form-control" })
+    </div>
+
+    <div class="form-group col-md-6">
+        @Html.Label("Escala Correspondiente", new { @class = "control-label" })
+        @Html.DropDownList("Escala", ViewBag.ListaEscala as SelectList, "Seleccionar Escala", new { @class = "form-control", @id = "slt_escala" })
+        <br />
+        @Html.Label("Salario Correspondiente", new { @class = "control-label" })
+        @Html.DropDownList("Salario", ViewBag.Salario as SelectList, "Seleccionar Salario", new { @class = "form-control", @id = "slt_salario" })
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="form-group col-md-6">
+        @Html.Label("Meta para Créditos", new { @class = "control-label" })
+        <div class="input-group col-md-6">
+            <span class="input-group-addon">₡</span>
+            @Html.TextBox("MetaCreditos", null, new { @id = "txt_metaCred", @class = "form-control", @type = "number" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-6">
+        @Html.Label("Porcentaje correspondiente del IDP para Créditos", new { @class = "control-label" })
+        <div class="input-group col-md-6">
+            <span class="input-group-addon">%</span>
+            @Html.TextBox("IDP_Creditos", null, new { @id = "txt_IDPCreditos", @class = "form-control", @type = "number" })
+        </div>
+
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="form-group col-md-6">
+        @Html.Label("Meta para CDP's", new { @class = "control-label" })
+        <div class="input-group col-md-6">
+            <span class="input-group-addon">₡</span>
+            @Html.TextBox("MetaCDPS", null, new { @id = "txt_metaCDP", @class = "form-control", @type = "number" })
+        </div>
+    </div>
+
+    <div class="form-group col-md-6">
+        @Html.Label("Porcentaje correspondiente del IDP para CDP's", new { @class = "control-label" })
+        <div class="input-group col-md-6">
+            <span class="input-group-addon">%</span>
+            @Html.TextBox("IDP_CDP", null, new { @id = "txt_IDP_CDP", @class = "form-control", @type = "number" })
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="form-group col-md-12">
+        <h5><b>Meta para Productos</b></h5>
+        <span class="text-danger" id="mensaje_validacion_prod"></span>
+    </div>
+
+    <div class="form-group col-md-6">
+        <div id="cont_gnrl_prods">
+            <small><label for="lista_prods">Seleccione los Tipos de Productos a Agregar</label></small>
+            <select multiple class="form-control" id="lista_prods"></select>
+            <br />
+
+            <small> @Html.Label("Cantidad Meta", new { @class = "control-label" })</small>
+
+                @Html.TextBox("Cant_Prod", null, new { @id = "txt_cant_Prod", @class = "form-control", @type = "number" })
+
+            <br />
+
+            <small>@Html.Label("Porcentaje del IDP", new { @class = "control-label" })</small>
+            <div class="input-group col-md-6">
+                <span class="input-group-addon">%</span>
+                @Html.TextBox("IDP_Prod", null, new { @id = "txt_IDP_Prod", @class = "form-control", @type = "number" })
+            </div>
+            <br />
+
+            <input type="button" name="agregar" id="btn_agregar" value="Agregar" class="btn btn-success" />
+
+        </div>
+    </div>
+
+    <div class="form-group col-md-4" id="mostrar_meta_prods_agregados">
+    </div>
+
+</div>
+
+<hr />
+
+<input type="submit" name="guargdar" id="btn_guardar" value="Guardar Meta" class="btn btn-primary" />
+
+<hr />
+
+<div>
+    @Html.ActionLink("Regresar a la lista", "Index")
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        var json_tipoProductos = @json_TipoProductos;
+    </script>
+    @Scripts.Render("~/bundles/metas")
+}

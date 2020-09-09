@@ -1,0 +1,6 @@
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DATA\bin\Release\SPC_Coopenae.DATA.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DATA\bin\Release\SPC_Coopenae.DATA.pdb
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DATA\obj\Release\SPC_Coopenae.DATA.csprojAssemblyReference.cache
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DATA\obj\Release\SPC_Coopenae.DATA.csproj.CoreCompileInputs.cache
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DATA\obj\Release\SPC_Coopenae.DATA.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DATA\obj\Release\SPC_Coopenae.DATA.pdb

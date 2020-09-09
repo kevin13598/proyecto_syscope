@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrar</h2>
+<h4>Escala</h4>
+<span class="text-danger" id="mensaje_validacion"></span>
+<hr />
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2">Descripcion</label>
+        <div class="col-md-8">
+            <input type="text" name="Descripcion" id="txt_descripcion" class="form-control" />
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="form-inline" style="margin-left: 7%;">
+
+
+    <div class="form-group">
+        <label for="minimo">% Minimo</label>
+        <div class="">
+            <input class="form-control" type="number" name="minimo" id="txt_pctmin" style="width: 50%;" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="maximo">% Maximo</label>
+        <div class="">
+            <input class="form-control" type="number" name="maximo" id="txt_pctmax" style="width: 50%;" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="comision">% Comision</label>
+        <div class="">
+            <input class="form-control" type="text" name="comision" id="txt_comision" style="width: 50%;" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="button" name="agregar" id="btn_agregar" value="Agregar" class="btn btn-success" />
+    </div>
+
+</div>
+
+
+<hr />
+
+<div style="margin-left: 7%; width: 60%;">
+
+    <table class="table" id="tbl_detallesEscala">
+        <thead>
+            <tr>
+                <th>Porcentaje Mínimo</th>
+                <th>Porcentaje Máximo</th>
+                <th>Porcentaje de Comisión</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+
+    </table>
+    <hr />
+    <input type="submit" name="guargdar" id="btn_guardar" value="Guardar" class="btn btn-primary" />
+</div>
+
+<hr />
+
+<div>
+    @Html.ActionLink("Regresar a la lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/escalas")
+}

@@ -1,0 +1,47 @@
+﻿@model SPC_Coopenae.UI.Areas.Mantenimientos.Models.Producto
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comision)
+        </dt>
+
+        <dd>
+            @{ var moneda = Html.Encode((ViewBag.Moneda as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.TipoProducto).Text);
+                moneda = (moneda == "d") ? "$" : (moneda == "c") ? "₡" : "Error"; }
+
+            @moneda@(string.Format("{0:0,0.00}", Model.Comision))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoProducto)
+        </dt>
+
+        <dd>
+            @Html.Encode((ViewBag.TipoProducto as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.TipoProducto).Text)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new {  id = Model.IdProducto }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

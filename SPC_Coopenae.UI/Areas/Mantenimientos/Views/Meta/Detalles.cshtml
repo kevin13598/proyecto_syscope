@@ -1,0 +1,152 @@
+﻿@model SPC_Coopenae.DATA.DetalleMeta
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+
+<h4>Meta</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Datos Generales</h4>
+        <dl class="dl-horizontal">
+
+            <dt>
+                Descripción de Meta
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+            <dt>
+                Escala Asignada
+            </dt>
+
+            <dd>
+                @Html.Encode((ViewBag.Escala as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.Escala).Text)
+            </dd>
+
+            <dt>
+                Salario Asignado
+            </dt>
+
+            <dd>
+                @Html.Encode((ViewBag.Salario as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.Salario).Text)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Meta para Créditos</h4>
+        <dl class="dl-horizontal">
+
+            <dt>
+                IDP Para Créditos
+            </dt>
+
+            <dd>
+                @(Model.IDP_Credito)%
+            </dd>
+
+            <dt>
+                Meta de Créditos
+            </dt>
+
+            <dd>
+                ₡@(string.Format("{0:0,0.00}", Model.ColocacionCredito))
+            </dd>
+
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <h4>Meta para CDP's</h4>
+        <dl class="dl-horizontal">
+
+            <dt>
+                IDP Para CDP's
+            </dt>
+
+            <dd>
+                @(Model.IDP_CDP)%
+            </dd>
+
+            <dt>
+                Meta de CDP's
+            </dt>
+
+            <dd>
+                ₡@(string.Format("{0:0,0.00}", Model.ColocacionCDP))
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Meta para Tipos de Productos</h4>
+        <br />
+
+        @foreach (var item in Model.TipoProductos)
+        {
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table-condensed">
+                            <tr>
+                                <td>
+                                    <b>Cantidad Meta</b>
+                                </td>
+                                <td>
+                                    @item.Cantidad
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>IDP Meta</b>
+                                </td>
+                                <td>
+                                    @item.IDP_TProductos%
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Tipos de Productos</b>
+                                </td>
+                                <td>
+                                    @foreach (var x in item.ListaTipoProductos)
+                                    {
+                                        @x
+                                        <br />
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>
+
+

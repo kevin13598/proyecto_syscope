@@ -1,0 +1,127 @@
+﻿@model SPC_Coopenae.UI.Models.ObjsReporte.R_IDP
+
+<small>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>Estado del IDP: @string.Format("{0:0,0.00}", Model.TotalIDP)%</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed text-right">
+                <thead>
+                    <tr>
+                        <th class="text-left">Nombre</th>
+                        <th class="text-right">IDP Alcanzado</th>
+                        <th class="text-right">IDP </th>
+                    </tr>
+                </thead>
+                @if (!(Model.IDP_Creditos[0] == 0 && Model.Metas_Creditos[0] == 0))
+                {
+
+                    <tr>
+                        <td class="text-left"><b>Créditos: </b></td>
+                        <td>@string.Format("{0:0,0.00}", Model.IDP_Creditos[1])%</td>
+                        <td>@string.Format("{0:0,0.00}", Model.IDP_Creditos[0])%</td>
+                    </tr>
+                }
+
+                @if (!(Model.IDP_CDPs[0] == 0 && Model.Metas_CDPs[0] == 0))
+                {
+                    <tr>
+                        <td class="text-left"><b>CDP's: </b></td>
+                        <td>@string.Format("{0:0,0.00}", Model.IDP_CDPs[1])%</td>
+                        <td>@string.Format("{0:0,0.00}", Model.IDP_CDPs[0])%</td>
+                    </tr>
+                }
+
+                @if (Model.TipoProductos.Count != 0)
+                {
+                    <tr><td></td><td></td><td></td></tr>
+                    <tr>
+                        <td class="text-left"><b>Productos:</b></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    foreach (var x in Model.TipoProductos)
+                    {
+                        if (!(x.CantMeta == 0 && x.IDPMeta == 0))
+                        {
+                            <tr>
+                                <td class="text-left">
+                                    @foreach (var nombre in x.TipoProductos)
+                                    {
+                                        @nombre <br>
+                                    }
+                            </td>
+                            <td>@string.Format("{0:0,0.00}", x.IDPGanado)%</td>
+                            <td>@string.Format("{0:0,0.00}", x.IDPMeta)%</td>
+                        </tr>
+                    }
+                }
+            }
+
+            </table>
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>Desglose de Metas</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed text-right">
+                <thead>
+                    <tr>
+                        <th class="text-left">Nombre</th>
+                        <th class="text-right">Total Alcanzado</th>
+                        <th class="text-right">Total Meta</th>
+                    </tr>
+                </thead>
+                @if (!(Model.IDP_Creditos[0] == 0 && Model.Metas_Creditos[0] == 0))
+                {
+
+                    <tr>
+                        <td class="text-left"><b>Créditos: </b></td>
+                        <td>₡@string.Format("{0:0,0.00}", Model.Metas_Creditos[1])</td>
+                        <td>₡@string.Format("{0:0,0.00}", Model.Metas_Creditos[0])</td>
+                    </tr>
+                }
+
+                @if (!(Model.IDP_CDPs[0] == 0 && Model.Metas_CDPs[0] == 0))
+                {
+                    <tr>
+                        <td class="text-left"><b>CDP's: </b></td>
+                        <td>₡@string.Format("{0:0,0.00}", Model.Metas_CDPs[1])</td>
+                        <td>₡@string.Format("{0:0,0.00}", Model.Metas_CDPs[0])</td>
+                    </tr>
+                }
+
+                @if (Model.TipoProductos.Count != 0)
+                {
+                    <tr><td></td><td></td><td></td></tr>
+                    <tr>
+                        <td class="text-left"><b>Productos:</b></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    foreach (var x in Model.TipoProductos)
+                    {
+                        if (!(x.CantMeta == 0 && x.IDPMeta == 0))
+                        {
+                            <tr>
+                                <td class="text-left">
+                                    @foreach (var nombre in x.TipoProductos)
+                                    {
+                                        @nombre <br>
+                                    }
+                                </td>
+                                <td>@x.CantVendida</td>
+                                <td>@x.CantMeta</td>
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</small>

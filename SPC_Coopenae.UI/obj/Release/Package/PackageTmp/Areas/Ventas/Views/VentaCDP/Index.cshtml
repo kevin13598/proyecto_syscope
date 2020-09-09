@@ -1,0 +1,90 @@
+﻿@model IEnumerable<SPC_Coopenae.UI.Areas.Ventas.Models.VentaCDP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listado de Ventas de CDP</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+
+        <div class="form-group">
+            <input type="number" class="form-control" id="cedula" name="cedula" placeholder="Ejecutivo" required>
+        </div>
+
+        <div class="form-group" id="contenedor-fecha">
+            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Buscar</button>
+
+    </div>
+}
+<br />
+
+@Html.Raw(ViewBag.MensajeBusqueda)
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ejecutivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoCDP)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Encode((ViewBag.Ejecutivo as SelectList).SingleOrDefault(x => int.Parse(x.Value) == item.Ejecutivo).Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @{ var moneda = Html.Encode((ViewBag.Moneda as SelectList).SingleOrDefault(x => int.Parse(x.Value) == item.TipoCDP).Text);
+                    moneda = (moneda == "d") ? "$" : (moneda == "c") ? "₡" : "Error"; }
+                @moneda@(string.Format("{0:0,0.00}", item.Monto))
+            </td>
+            <td>
+                @Html.Encode((ViewBag.TipoCDP as SelectList).SingleOrDefault(x => int.Parse(x.Value) == item.TipoCDP).Text)
+            </td>
+            <td>
+                <a class="btn btn-default" href="@Url.Action("Editar", new { id = item.IdVentaCDP })">
+                    <span class="glyphicon glyphicon-pencil" title="Editar"></span>
+                </a>
+
+                <a class="btn btn-success" href="@Url.Action("Detalles", new { id = item.IdVentaCDP })">
+                    <span class="glyphicon glyphicon-list-alt" title="Detalle"></span>
+                </a>
+
+                <a class="btn btn-danger" href="@Url.Action("Eliminar", new { id = item.IdVentaCDP })">
+                    <span class="glyphicon glyphicon-trash" title="Eliminar"></span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Styles {
+    <link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/datepicker")
+}

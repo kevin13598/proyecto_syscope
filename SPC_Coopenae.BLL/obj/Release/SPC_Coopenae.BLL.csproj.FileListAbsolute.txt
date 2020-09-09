@@ -1,0 +1,14 @@
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\SPC_Coopenae.BLL.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\SPC_Coopenae.BLL.pdb
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\SPC_Coopenae.DAL.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\SPC_Coopenae.DATA.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\EntityFramework.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\SPC_Coopenae.DAL.pdb
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\SPC_Coopenae.DAL.dll.config
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\SPC_Coopenae.DATA.pdb
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\bin\Release\EntityFramework.xml
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\obj\Release\SPC_Coopenae.BLL.csprojAssemblyReference.cache
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\obj\Release\SPC_Coopenae.BLL.csproj.CoreCompileInputs.cache
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\obj\Release\SPC_Coopenae.BLL.csproj.CopyComplete
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\obj\Release\SPC_Coopenae.BLL.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.BLL\obj\Release\SPC_Coopenae.BLL.pdb

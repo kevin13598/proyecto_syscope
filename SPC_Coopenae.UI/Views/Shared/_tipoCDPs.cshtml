@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SPC_Coopenae.UI.Models.ObjsReporte.RCDPs>
+
+<table class="table table-hover table-condensed">
+    <thead>
+        <tr>
+            <th>Nombre CDP</th>
+            <th class="text-right">Total Colocado</th>
+            <th class="text-right">% de Comisión</th>
+            <th class="text-right">IDP Necesario</th>
+            <th class="text-right">Total Comisionado</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        var ClaseAsignar = "";
+        ClaseAsignar = (item.SumaColocaciones == 0 ? "text-danger" : ClaseAsignar);
+
+        <tr class="@ClaseAsignar text-right">
+            <td class="text-left">
+                @Html.DisplayFor(x => item.NombreTipo)
+            </td>
+            <td>
+                ₡@string.Format("{0:0,0.00}", item.SumaColocaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(x => item.PCTComision)%
+            </td>
+            <td>
+                @Html.DisplayFor(x => item.IDPNecesario)%
+            </td>
+            <td>
+                @{
+                    decimal TotalMostrar = item.TotalComision;
+                }
+                ₡@string.Format("{0:0,0.00}", TotalMostrar)
+            </td>
+        </tr>
+    }
+</table>

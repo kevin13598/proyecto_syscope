@@ -1,0 +1,67 @@
+﻿@model SPC_Coopenae.UI.Areas.Mantenimientos.Models.Escala
+
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Escala</h4>
+    <hr />
+
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+        </dl>
+
+    <hr />
+
+    <div class="row text-center">
+        <div class="col-md-7">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">Porcentaje Minimo</th>
+                        <th class="text-center">Porcentaje Maximo</th>
+                        <th class="text-center">Porcentaje Comision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var data in ViewBag.DetallesDeEscala)
+                    {
+                        <tr>
+                            <td>
+                                @data.PCTMinimo%
+                            </td>
+                            <td>
+                                @data.PCTMaximo%
+                            </td>
+                            <td>
+                                @data.PCTComision%
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<p>
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

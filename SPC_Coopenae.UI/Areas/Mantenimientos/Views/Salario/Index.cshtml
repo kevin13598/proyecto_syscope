@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SPC_Coopenae.UI.Areas.Mantenimientos.Models.Salario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Salarios</h2>
+
+<p>
+    @Html.ActionLink("Registrar Nuevo Salario", "Registrar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Base)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            ₡@(string.Format("{0:0,0.00}", item.Base))
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            <a class="btn btn-default" href="@Url.Action("Editar", new { id = item.IdSalario })">
+                <span class="glyphicon glyphicon-pencil" title="Editar"></span>
+            </a>
+
+            <a class="btn btn-success" href="@Url.Action("Detalles", new { id = item.IdSalario })">
+                <span class="glyphicon glyphicon-list-alt" title="Detalle"></span>
+            </a>
+
+            <a class="btn btn-danger" href="@Url.Action("Eliminar", new { id = item.IdSalario })">
+                <span class="glyphicon glyphicon-trash" title="Eliminar"></span>
+        </td>
+    </tr>
+}
+
+</table>

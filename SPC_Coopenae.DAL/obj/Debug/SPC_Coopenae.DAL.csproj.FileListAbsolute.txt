@@ -1,0 +1,14 @@
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\SPC_Coopenae.DAL.dll.config
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\SPC_Coopenae.DAL.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\SPC_Coopenae.DAL.pdb
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\EntityFramework.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\SPC_Coopenae.DATA.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\SPC_Coopenae.DATA.pdb
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\EntityFramework.xml
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\obj\Debug\SPC_Coopenae.DAL.csprojAssemblyReference.cache
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\obj\Debug\SPC_Coopenae.DAL.csproj.CoreCompileInputs.cache
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\obj\Debug\SPC_Coopenae.DAL.csproj.CopyComplete
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\obj\Debug\SPC_Coopenae.DAL.dll
+E:\U\Analisis 3\isaac16av\sys_cope\SPC_Coopenae\SPC_Coopenae.DAL\obj\Debug\SPC_Coopenae.DAL.pdb

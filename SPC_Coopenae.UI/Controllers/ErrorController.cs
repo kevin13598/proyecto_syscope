@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace SPC_Coopenae.UI.Controllers
+{
+    public class ErrorController : Controller
+    {
+        // GET: ErrorPage
+        public ActionResult Message()
+        {
+            return View();
+        }
+    }
+}

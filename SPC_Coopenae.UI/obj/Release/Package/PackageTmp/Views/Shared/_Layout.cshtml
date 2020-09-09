@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sistema de Control de Comisiones</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" id="nav">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="@Url.Action("Index","Home", new { area = "" })" class="navbar-brand">
+                    <img src="@Url.Content("~/Resources/Images/logo_coopenae.png")" alt="Logo">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Ejecutivos", "Index", "Ejecutivo", new { area = "Mantenimientos" }, new { })</li>
+                            <li>@Html.ActionLink("Unidades de Negocio", "Index", "UnidadNegocio", new { area = "Mantenimientos" }, new { })</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Tipos de CDPs", "Index", "TipoCDP", new { area = "Mantenimientos" }, new { })</li>
+                            <li>@Html.ActionLink("Tipos de Créditos", "Index", "TipoCredito", new { area = "Mantenimientos" }, new { })</li>
+                            <li>@Html.ActionLink("Tipos de Productos", "Index", "TipoProducto", new { area = "Mantenimientos" }, new { })</li>
+                            <li>@Html.ActionLink("Productos", "Index", "Producto", new { area = "Mantenimientos" }, new { })</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Escalas", "Index", "Escala", new { area = "Mantenimientos" }, new { })</li>
+                            <li>@Html.ActionLink("Metas", "Index", "Meta", new { area = "Mantenimientos" }, new { })</li>
+                            <li>@Html.ActionLink("Salarios", "Index", "Salario", new { area = "Mantenimientos" }, new { })</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Ventas de Productos", "Index", "VentaProducto", new { area = "Ventas" }, new { })</li>
+                            <li>@Html.ActionLink("Ventas de Créditos", "Index", "VentaCredito", new { area = "Ventas" }, new { })</li>
+                            <li>@Html.ActionLink("Ventas de CDPs", "Index", "VentaCDP", new { area = "Ventas" }, new { })</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Tipo de Cambio", "Index", "TipoCambio", new { area = "" }, new { })</li> 
+                    <li>@Html.ActionLink("Reportes", "Index", "Reporte", new { area = "" }, new { }) </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿@model SPC_Coopenae.UI.Areas.Ventas.Models.VentaCDP
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>VentaCDP</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ejecutivo)
+        </dt>
+
+        <dd>
+            @Html.Encode((ViewBag.Ejecutivo as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.Ejecutivo).Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CentroTrabajo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CentroTrabajo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            @{ var moneda = Html.Encode((ViewBag.Moneda as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.TipoCDP).Text);
+                moneda = (moneda == "d") ? "$" : (moneda == "c") ? "₡" : "Error"; }
+            @moneda@(string.Format("{0:0,0.00}", Model.Monto))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlazoMeses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlazoMeses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Periocidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Periocidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SobreTasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SobreTasa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCDP)
+        </dt>
+
+        <dd>
+            @Html.Encode((ViewBag.TipoCDP as SelectList).SingleOrDefault(x => int.Parse(x.Value) == Model.TipoCDP).Text)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new {  id = Model.IdVentaCDP  }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

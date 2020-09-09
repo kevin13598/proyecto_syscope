@@ -1,0 +1,52 @@
+﻿@model SPC_Coopenae.UI.Areas.Mantenimientos.Models.TipoCredito
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Tipo de Crédito</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComisionDistinta)
+        </dt>
+
+        <dd>
+            @(Model.ComisionDistinta == null ? "" : Model.ComisionDistinta + "%")
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximoComision)
+        </dt>
+
+        <dd>
+            @(Model.MaximoComision == null ? "" : "₡")@(string.Format("{0:0,0.00}", Model.MaximoComision))
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.SumaIDP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumaIDP)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdTipoCredito }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

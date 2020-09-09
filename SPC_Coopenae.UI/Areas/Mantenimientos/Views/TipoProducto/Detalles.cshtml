@@ -1,0 +1,44 @@
+﻿@model SPC_Coopenae.UI.Areas.Mantenimientos.Models.TipoProducto
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+
+    <h4>Tipo de Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Moneda)
+        </dt>
+
+        <dd>
+            @(Model.Moneda == "d" ? "$ - Dólares" : (Model.Moneda == "c") ? "₡ - Colones" : "Error")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPNecesario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPNecesario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdTipoProducto }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

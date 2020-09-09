@@ -1,0 +1,60 @@
+﻿@model SPC_Coopenae.UI.Areas.Mantenimientos.Models.TipoCDP
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Tipo de CDP</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Moneda)
+        </dt>
+
+        <dd>
+            @(Model.Moneda == "d" ? "$ - Dólares" : (Model.Moneda == "c") ? "₡ - Colones" : "Error")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComisionMaxima)
+        </dt>
+
+        <dd>
+            @(Model.Moneda == "d" ? "$" : "₡")@(string.Format("{0:0,0.00}", Model.ComisionMaxima))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPNecesario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPNecesario)%
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.PCTComision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PCTComision)%
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdTipoCDP }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

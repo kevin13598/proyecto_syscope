@@ -1,0 +1,87 @@
+﻿@model IEnumerable<SPC_Coopenae.UI.Models.ObjsReporte.RProductos>
+
+@{ 
+    var tipoAnterior = "";
+}
+
+<table class="table table-hover table-condensed">
+    <thead>
+        <tr>
+            <td><b>En Colones</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Tipo de producto</th>
+            <th>Producto</th>
+            <th class="text-right">% IDP Necesario</th>
+            <th class="text-right">Ganancia por Producto</th>
+            <th class="text-right">Cantidad Vendida</th>
+            <th class="text-right">Comisión Ganada</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model.Where(x => x.Moneda == "c"))
+    {
+        var claseAsignar = "";
+        claseAsignar = (item.TotalComision == 0 ? "text-danger" : claseAsignar);
+
+        <tr class="@claseAsignar text-right">
+            <td class="text-left text-muted">
+                @(item.TipoProducto == tipoAnterior ? "" : item.TipoProducto)
+                @{ tipoAnterior = item.TipoProducto; }
+            </td>
+            <td class="text-left">
+                @item.Nombre
+            </td>
+            <td>
+                @item.IDPNecesario%
+            </td>
+            <td>
+                ₡@string.Format("{0:0,0.00}", @item.ComisionProducto)
+            </td>
+            <td>
+                @item.CantidadVendida
+            </td>
+            <td>
+                ₡@string.Format("{0:0,0.00}", @item.TotalComision)
+            </td>
+        </tr>
+    }
+
+    <tr>
+        <td><b>En Dólares</b></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+
+    @foreach (var item in Model.Where(x => x.Moneda == "d"))
+    {
+        var claseAsignar = "";
+        claseAsignar = (item.TotalComision == 0 ? "text-danger" : claseAsignar);
+
+        <tr class="@claseAsignar text-right">
+            <td class="text-left text-muted">
+                @(item.TipoProducto == tipoAnterior ? "" : item.TipoProducto)
+                @{ tipoAnterior = item.TipoProducto; }
+            </td>
+            <td class="text-left">
+                @item.Nombre
+            </td>
+            <td>
+                @item.IDPNecesario%
+            </td>
+            <td>
+                $@string.Format("{0:0,0.00}", @item.ComisionProducto)
+            </td>
+            <td>
+                @item.CantidadVendida
+            </td>
+            <td>
+                ₡@string.Format("{0:0,0.00}", @item.TotalComision)
+            </td>
+        </tr>
+    }
+
+</table>

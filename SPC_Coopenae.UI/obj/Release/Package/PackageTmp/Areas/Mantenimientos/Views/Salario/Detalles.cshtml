@@ -1,0 +1,59 @@
+﻿@model SPC_Coopenae.UI.Areas.Mantenimientos.Models.Salario
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Salario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Base)
+        </dt>
+
+        <dd>
+            ₡@string.Format("{0:0,0.00}", Model.Base)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalarioInicio)
+        </dt>
+
+        <dd>
+            ₡@string.Format("{0:0,0.00}", Model.SalarioInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BonoInicio)
+        </dt>
+
+        <dd>
+            ₡@string.Format("{0:0,0.00}", Model.BonoInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesesInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesesInicio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdSalario }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

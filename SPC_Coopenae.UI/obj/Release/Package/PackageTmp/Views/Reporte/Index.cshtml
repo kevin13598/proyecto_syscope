@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Buscar reporte de ejecutivo</h3>
+
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label class="control-label">Número de cédula</label>
+        <div class="form-group">
+            <input type="number" name="cedula" id="txt_cedula" class="form-control" required/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Fecha</label>
+        <div class="form-group" id="contenedor-fecha">
+            <input type="text" name="fecha" id="fecha" class="form-control" required />
+        </div>
+    </div>
+    
+    <input type="submit" name="buscar" id="btn_buscar" value="Buscar" class="form-control" />
+
+    if (ViewBag.MensajeError != null)
+    {
+        <h5 class="text-danger">@Html.Raw(ViewBag.MensajeError)</h5>
+    }
+
+}
+
+@section Styles {
+    <link href="~/Content/bootstrap-datepicker.css" rel="stylesheet"/>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/datepicker")
+}

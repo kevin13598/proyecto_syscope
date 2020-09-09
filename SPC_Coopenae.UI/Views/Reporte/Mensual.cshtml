@@ -1,0 +1,102 @@
+﻿@model SPC_Coopenae.UI.Models.Reporte
+
+@{
+    ViewBag.Title = "EjecutivoMensual";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Reporte de @Model.Nombre</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <h5>Cédula: @Model.Cedula</h5>
+                    <h5>Reporte del mes de @Model.Fecha.ToString("MMM") del @Model.Fecha.Year</h5>
+                    <h5>Tipo de cambio: ₡@string.Format("{0:0,0.00}", Model.TipoCambio)</h5>
+                </div>
+                <div class="col-md-6">
+                    <h5>Unidad de Negocio: @Model.UnidadNegocio</h5>
+                    <h5>Fecha de Contratación: @Model.FechaContratacion.ToString("dd") de @Model.FechaContratacion.ToString("MMM") del @Model.FechaContratacion.Year</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Total de Ganancias</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <div class="row">Salario Base:</div>
+                    <div class="row">Comisión por Créditos:</div>
+                    <div class="row">Comisión Productos:</div>
+                    <div class="row">Comisión CDPs:</div>
+                    @{
+                        if (Model.Bono != 0)
+                        {
+                            <div class="row">Bono:</div>
+                        }
+                    }
+                    <div class="row"><b>Pago Total:</b></div>
+                </div>
+                <div class="col-md-6 text-right">
+                    <div class="row">₡@string.Format("{0:0,0.00}", @Model.Salario)</div>
+                    <div class="row">₡@string.Format("{0:0,0.00}", @Model.TotalComisionCreditos)</div>
+                    <div class="row">₡@string.Format("{0:0,0.00}", @Model.TotalComisionProductos)</div>
+                    <div class="row">₡@string.Format("{0:0,0.00}", @Model.TotalComisionCDPs)</div>
+                    @{
+                        if (Model.Bono != 0)
+                        {
+                            <div class="row">₡@string.Format("{0:0,0.00}", @Model.Bono)</div>
+                        }
+                    }
+                    <div class="row"><b>₡@string.Format("{0:0,0.00}", @Model.TotalGenerado)</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Reporte de Créditos Colocados</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_TipoCreditos", Model.listaTipoCreditos)
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Reporte de CDPs</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_TipoCDPs", Model.listaCDPs)
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        @Html.Partial("_IDPReporte", Model.Estado_IDP)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Reporte de Productos Vendidos</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_Productos", Model.listaProductos.OrderBy(x => x.Moneda).ThenBy(z => z.TipoProducto))
+            </div>
+        </div>
+    </div>
+</div>
